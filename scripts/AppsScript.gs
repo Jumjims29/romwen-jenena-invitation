@@ -11,7 +11,6 @@ function _sheet() {
   return sh;
 }
 
-// ✅ Always return JSON
 function jsonResponse(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))

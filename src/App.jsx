@@ -10,10 +10,10 @@ import "./index.css"
 const WEDDING_DATE = "2025-09-13T14:00:00+08:00"
 
 const photos = [
-  "/gallery/photo1.jpg",
-  "/gallery/photo2.jpg",
-  "/gallery/photo3.jpg",
-  "/gallery/photo4.jpg",
+  `${import.meta.env.BASE_URL}gallery/photo1.jpg`,
+  `${import.meta.env.BASE_URL}gallery/photo2.jpg`,
+  `${import.meta.env.BASE_URL}gallery/photo3.jpg`,
+  `${import.meta.env.BASE_URL}gallery/photo4.jpg`,
 ]
 
 function Section({ id, title, children }) {
@@ -68,17 +68,17 @@ export default function App() {
       </nav>
 
       {/* Hero / Cover */}
-      <header className="hero">
+     <header className="hero">
   <div className="container">
-    <img src="/cover.jpg" alt="Wedding Cover" className="wedding-photo" />
+    <img src={`${import.meta.env.BASE_URL}cover.jpg`} alt="Wedding Cover" className="wedding-photo" />
     <div className="card countdown-card">
       <h3 className="h3">Countdown to our Wedding Day</h3>
       <Countdown to={WEDDING_DATE} />
     </div>
 
-    {/* Hidden Background Music */}
+    {/* Background Music */}
     <audio ref={audioRef} autoPlay loop>
-      <source src="/music.mp3" type="audio/mpeg" />
+      <source src={`${import.meta.env.BASE_URL}music.mp3`} type="audio/mpeg" />
     </audio>
   </div>
 </header>
@@ -87,15 +87,15 @@ export default function App() {
       {/* Love Story (Photo only) */}
       <Section id="love-story">
         <div className="card">
-          <img src="/lovestory.jpg" alt="Our Love Story" className="portrait-photo" />
+          <img src={`${import.meta.env.BASE_URL}lovestory.jpg`} alt="Our Love Story" className="portrait-photo" />
         </div>
       </Section>
 
       {/* Entourage */}
       <Section id="entourage" title="Entourage">
         <div className="card entourage-grid">
-          <img src="/entourage1.jpg" alt="Entourage 1" className="portrait-photo" />
-          <img src="/entourage2.jpg" alt="Entourage 2" className="portrait-photo" />
+          <img src={`${import.meta.env.BASE_URL}entourage1.jpg`} alt="Entourage 1" className="portrait-photo" />
+<img src={`${import.meta.env.BASE_URL}entourage2.jpg`} alt="Entourage 2" className="portrait-photo" />
         </div>
       </Section>
 
@@ -116,18 +116,18 @@ export default function App() {
 <Section id="venue" title="Details">
   {/* Top Center Photo */}
   <div className="card" style={{ textAlign: "center" }}>
-    <img src="/detailstop.jpg" alt="Details Top Photo" className="portrait-photo" />
+    <img src={`${import.meta.env.BASE_URL}detailstop.jpg`} alt="Details Top Photo" className="portrait-photo" />
   </div>
 
   <div className="grid grid-2">
     <div className="card">
       <a href="https://maps.app.goo.gl/MR4vQmo22zGNLED98" target="_blank" rel="noopener noreferrer">
-        <img src="/ceremony.jpg" alt="Ceremony Venue" className="detail-photo" />
+        <img src={`${import.meta.env.BASE_URL}ceremony.jpg`} alt="Ceremony Venue" className="detail-photo" />
       </a>
     </div>
     <div className="card">
       <a href="https://maps.app.goo.gl/7ffoXkKtSs7Qb4HQA" target="_blank" rel="noopener noreferrer">
-        <img src="/reception.jpg" alt="Reception Venue" className="detail-photo" />
+        <img src={`${import.meta.env.BASE_URL}reception.jpg`} alt="Reception Venue" className="detail-photo" />
       </a>
     </div>
   </div>
@@ -137,21 +137,21 @@ export default function App() {
       {/* Attire */}
       <Section id="attire" title="Dress Guide">
         <div className="card">
-          <img src="/dresscode.jpg" alt="Dress Code" className="portrait-photo" />
+          <img src={`${import.meta.env.BASE_URL}dresscode.jpg`} alt="Dress Code" className="portrait-photo" />
         </div>
       </Section>
 
 {/* Extra Photo (separate, centered) */}
 <Section id="extra-photo">
   <div className="card" style={{ textAlign: "center" }}>
-    <img src="/attire-extra.jpg" alt="Extra Portrait" className="portrait-photo" />
+    <img src={`${import.meta.env.BASE_URL}attire-extra.jpg`} alt="Extra Portrait" className="portrait-photo" />
   </div>
 </Section>
 
       {/* Notes (replaced with photo only) */}
 <Section id="notes">
   <div className="card" style={{ textAlign: "center" }}>
-    <img src="/giftphoto.jpg" alt="Gift Photo" className="portrait-photo" />
+    <img src={`${import.meta.env.BASE_URL}giftphoto.jpg`} alt="Gift Photo" className="portrait-photo" />
   </div>
 </Section>
 

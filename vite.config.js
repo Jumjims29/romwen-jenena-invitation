@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const gsheetUrl = 'https://script.google.com/macros/s/AKfycbxWSYC3nga1g4SscLQ4hnHVGv6UnT58XK7KX9QQRRUUmEfkxYETUsE9E-hpGvlXHbty/exec'
+const gsheetUrl = 'https://script.google.com/macros/s/AKfycbyFxErWlC93tWUt6bMS68GN_juEXW58jMAK-NsL1uSJxX_784xNdrpzF8_xo7U5ceMb/exec'
 const REPO = 'romwen-jenena-invitation' // your GitHub repo name
 
 export default defineConfig({
