@@ -201,15 +201,22 @@ img {
     margin: 0.5rem auto;
   }
 
-  /* Images smaller */
-  .wedding-photo,
-  .entourage-photo,
-  .gallery-photo,
-  .detail-photo,
-  .portrait-photo {
-    max-height: 250px;
-    object-fit: cover;
-  }
+  /* Photos (always show full image without cropping) */
+.entourage-photo,
+.wedding-photo,
+.gallery-photo,
+.detail-photo,
+.portrait-photo,
+.dress-guide-photo,
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;   /* ✅ scale down if larger than screen */
+  height: auto;      /* ✅ keep natural proportions */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  object-fit: scale-down; /* ✅ never crop, just scale */
+}
 
   /* Countdown block tighter */
   .countdown-card {
