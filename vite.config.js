@@ -1,12 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const gsheetUrl = 'https://script.google.com/macros/s/AKfycbyFxErWlC93tWUt6bMS68GN_juEXW58jMAK-NsL1uSJxX_784xNdrpzF8_xo7U5ceMb/exec'
-const REPO = 'romwen-jenena-invitation' // your GitHub repo name
+// ✅ Google Apps Script endpoint
+const gsheetUrl = 'https://script.google.com/macros/s/AKfycbxC9d39KiZUMvx2aVC8bc2r1T1eSlb8WvoTCimdTzDtOPg8V-jtAZ8IjMJCjJ6g4WhB/exec'
+
+// ✅ Your GitHub repo name (must match exactly)
+const REPO = 'romwen-jenena-invitation'
 
 export default defineConfig({
   plugins: [react()],
-  // 👇 ensures correct paths when deployed to GitHub Pages
+  // ✅ This ensures assets load correctly on GitHub Pages
   base: `/${REPO}/`,
   server: {
     proxy: {

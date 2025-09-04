@@ -1,28 +1,14 @@
-const SHEET_NAME = 'RSVPs';
-const HEADERS = ['Timestamp', 'Name', 'Attending', 'Message'];
-
-function _sheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sh = ss.getSheetByName(SHEET_NAME);
-  if (!sh) {
-    sh = ss.insertSheet(SHEET_NAME);
-    sh.appendRow(HEADERS);
-  }
-  return sh;
-}
-
-function jsonResponse(obj) {
-  return ContentService
-    .createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-
 function doPost(e) {
   try {
     const sh = _sheet();
-    const data = JSON.parse(e.postData.contents);
 
-    const row = [new Date(), data.name, data.attending, data.message];
+    // ✅ Read values from FormData (e.parameter)
+    const name = e.parameter.name || "";
+    const attending = e.parameter.attending || "";
+    const message = e.parameter.message || "";
+
+    // Save to sheet
+    const row = [new Date(), name, attending, message];
     sh.appendRow(row);
 
     return jsonResponse({ success: true, message: "RSVP saved!" });

@@ -230,3 +230,216 @@ img {
     font-size: 0.75rem;
   }
 }
+
+/* Spotify-like Player */
+.music-player {
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.music-player-inner {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+}
+
+/* Album Art */
+.music-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* Song Info */
+.music-info {
+  flex: 1;
+}
+.music-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.music-artist {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Animated Bars */
+.music-bars {
+  display: flex;
+  gap: 2px;
+  margin-top: 4px;
+}
+.music-bars .bar {
+  width: 3px;
+  height: 6px;
+  background: #ec4899;
+  animation: barAnim 0.6s infinite ease-in-out;
+}
+.music-bars .bar.delay-100 { animation-delay: 0.2s; }
+.music-bars .bar.delay-200 { animation-delay: 0.4s; }
+
+@keyframes barAnim {
+  0%, 100% { height: 6px; }
+  50% { height: 18px; }
+}
+
+/* Play/Pause Button */
+.music-btn {
+  background: #ec4899;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.music-btn:hover {
+  background: #db2777;
+}
+
+/* === Footer Enhancements === */
+.footer {
+  background: var(--sage-dark);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: "Great Vibes", cursive, serif;
+}
+
+.footer .copyright {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.footer .hashtag {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  color: #fff;
+}
+
+.footer .hashtag a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .hashtag a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.social-icons a {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Instagram gradient color */
+.social-icons .instagram {
+  color: #e1306c;
+}
+.social-icons .instagram:hover {
+  color: #fd1d1d;
+  transform: scale(1.2);
+}
+
+/* Facebook blue */
+.social-icons .facebook {
+  color: #1877f2;
+}
+.social-icons .facebook:hover {
+  color: #145dbf;
+  transform: scale(1.2);
+}
+
+/* === Spotify-like Player Improvements === */
+.music-player {
+  width: 100%;
+  max-width: 480px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.music-player-inner {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* Album art */
+.music-cover {
+  width: 60px;
+  height: 60px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Song info */
+.music-info {
+  flex: 1;
+}
+.music-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--sage-dark);
+}
+.music-artist {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Animated music bars */
+.music-bars {
+  display: flex;
+  gap: 3px;
+  margin-top: 4px;
+}
+.music-bars .bar {
+  width: 4px;
+  height: 6px;
+  background: var(--sage);
+  animation: barAnim 0.6s infinite ease-in-out;
+  border-radius: 2px;
+}
+.music-bars .bar.delay-100 { animation-delay: 0.2s; }
+.music-bars .bar.delay-200 { animation-delay: 0.4s; }
+
+@keyframes barAnim {
+  0%, 100% { height: 6px; }
+  50% { height: 20px; }
+}
+
+/* Play / Pause Button */
+.music-btn {
+  background: var(--sage-dark);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.music-btn:hover {
+  background: var(--sage);
+  transform: scale(1.1);
+}

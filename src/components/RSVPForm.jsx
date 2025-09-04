@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-// ✅ Use proxy in dev, env variable in prod
+// ✅ Use proxy in dev, env var in prod
 const endpoint =
   import.meta.env.DEV
-    ? '/rsvp' // handled by Vite proxy locally
+    ? "/rsvp"
     : import.meta.env.VITE_GSHEET_ENDPOINT;
 
 export default function RSVPForm() {
-  const [form, setForm] = useState({ name: '', attending: 'Yes', message: '' });
+  const [form, setForm] = useState({ name: "", attending: "Yes", message: "" });
   const [status, setStatus] = useState(null);
 
   const onChange = (e) =>
@@ -16,26 +16,27 @@ export default function RSVPForm() {
   const submit = async (e) => {
     e.preventDefault();
     if (!endpoint) {
-      setStatus({ ok: false, msg: 'Missing VITE_GSHEET_ENDPOINT in .env' });
+      setStatus({ ok: false, msg: "Missing VITE_GSHEET_ENDPOINT in .env" });
       return;
     }
 
     try {
-      setStatus({ ok: null, msg: 'Sending...' });
+      setStatus({ ok: null, msg: "Sending..." });
 
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
+      // ✅ Send FormData instead of JSON
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("attending", form.attending);
+      formData.append("message", form.message);
 
+      const res = await fetch(endpoint, { method: "POST", body: formData });
       const data = await res.json().catch(() => ({}));
 
       if (res.ok && data.success) {
-        setStatus({ ok: true, msg: data.message || 'RSVP sent. Thank you!' });
-        setForm({ name: '', attending: 'Yes', message: '' });
+        setStatus({ ok: true, msg: data.message || "RSVP sent. Thank you!" });
+        setForm({ name: "", attending: "Yes", message: "" });
       } else {
-        throw new Error(data.message || 'Failed to send');
+        throw new Error(data.message || "Failed to send");
       }
     } catch (err) {
       setStatus({ ok: false, msg: err.message });
@@ -80,13 +81,7 @@ export default function RSVPForm() {
       </button>
 
       {status && (
-        <div className={status.ok ? 'success' : 'error'}>{status.msg}</div>
-      )}
-      {!endpoint && (
-        <small className="helper">
-          Tip: edit <code>.env</code> and set{' '}
-          <code>VITE_GSHEET_ENDPOINT</code>.
-        </small>
+        <div className={status.ok ? "success" : "error"}>{status.msg}</div>
       )}
     </form>
   );
