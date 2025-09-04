@@ -443,3 +443,25 @@ img {
   background: var(--sage);
   transform: scale(1.1);
 }
+
+.portrait-video {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;  /* same as photos */
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  object-fit: contain;
+}
+
+/* Responsive video same as portrait-photo */
+.portrait-video {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;  /* same limit as images */
+  height: auto;       /* keeps natural proportions */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  object-fit: contain;
+}

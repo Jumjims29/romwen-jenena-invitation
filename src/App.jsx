@@ -79,20 +79,29 @@ export default function App() {
       </nav>
 
       {/* Hero / Cover */}
-      <header className="hero">
-        <div className="container">
-          <img src={`${import.meta.env.BASE_URL}cover.jpg`} alt="Wedding Cover" className="wedding-photo" />
-          <div className="card countdown-card">
-            <h3 className="h3">Countdown to our Wedding Day</h3>
-            <Countdown to={WEDDING_DATE} />
-          </div>
+<header className="hero">
+  <div className="container">
+    {/* ✅ Replace photo with video */}
+    <video
+  src={`${import.meta.env.BASE_URL}cover.mp4`}
+  autoPlay
+  muted
+  playsInline
+  className="portrait-video"
+  onEnded={(e) => e.currentTarget.pause()}
+/>
 
-          {/* Background Music */}
-          <audio ref={audioRef} loop>
-            <source src={`${import.meta.env.BASE_URL}music.mp3`} type="audio/mpeg" />
-          </audio>
-        </div>
-      </header>
+    <div className="card countdown-card">
+      <h3 className="h3">Countdown to our Wedding Day</h3>
+      <Countdown to={WEDDING_DATE} />
+    </div>
+
+    {/* Background Music */}
+    <audio ref={audioRef} loop>
+      <source src={`${import.meta.env.BASE_URL}music.mp3`} type="audio/mpeg" />
+    </audio>
+  </div>
+</header>
 
       {/* 🎵 Spotify-like Music Player */}
 <div className="music-player">
@@ -160,23 +169,57 @@ export default function App() {
       </Section>
 
       {/* Venue */}
-      <Section id="venue" title="DETAILS">
-        <div className="card" style={{ textAlign: "center" }}>
-          <img src={`${import.meta.env.BASE_URL}detailstop.jpg`} alt="Details Top Photo" className="portrait-photo" />
-        </div>
-        <div className="grid grid-2">
-          <div className="card">
-            <a href="https://maps.app.goo.gl/MR4vQmo22zGNLED98" target="_blank" rel="noopener noreferrer">
-              <img src={`${import.meta.env.BASE_URL}ceremony.jpg`} alt="Ceremony Venue" className="detail-photo" />
-            </a>
-          </div>
-          <div className="card">
-            <a href="https://maps.app.goo.gl/7ffoXkKtSs7Qb4HQA" target="_blank" rel="noopener noreferrer">
-              <img src={`${import.meta.env.BASE_URL}reception.jpg`} alt="Reception Venue" className="detail-photo" />
-            </a>
-          </div>
-        </div>
-      </Section>
+<Section id="venue" title="DETAILS">
+  {/* Top Photo */}
+  <div className="card text-center">
+    <img
+      src={`${import.meta.env.BASE_URL}detailstop.jpg`}
+      alt="Details Top Photo"
+      className="portrait-photo"
+    />
+  </div>
+
+  {/* Location Map Subheading */}
+  <h3 className="h3 text-center mt-6">LOCATION MAP</h3>
+
+  <div className="grid grid-2">
+    {/* Ceremony */}
+    <div className="card text-center">
+      <a
+        href="https://maps.app.goo.gl/MR4vQmo22zGNLED98"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}ceremony.jpg`}
+          alt="Ceremony Venue"
+          className="detail-photo"
+        />
+      </a>
+      <p className="mt-2 text-sm font-semibold text-pink-600">
+        Click to Navigate
+      </p>
+    </div>
+
+    {/* Reception */}
+    <div className="card text-center">
+      <a
+        href="https://maps.app.goo.gl/7ffoXkKtSs7Qb4HQA"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}reception.jpg`}
+          alt="Reception Venue"
+          className="detail-photo"
+        />
+      </a>
+      <p className="mt-2 text-sm font-semibold text-pink-600">
+       Click to Navigate
+      </p>
+    </div>
+  </div>
+</Section>
 
       {/* Attire */}
       <Section id="attire" title="ATTIRE">
