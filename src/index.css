@@ -161,3 +161,65 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* 📱 Mobile-first adjustments */
+@media (max-width: 600px) {
+  /* Navigation */
+  .nav {
+    padding: 0.5rem;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .menu .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Section padding smaller */
+  .section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  /* Titles scale down */
+  .h1, .h2, .h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Cards tighter */
+  .card {
+    padding: 0.8rem;
+    margin: 0.5rem auto;
+  }
+
+  /* Images smaller */
+  .wedding-photo,
+  .entourage-photo,
+  .gallery-photo,
+  .detail-photo,
+  .portrait-photo {
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+  /* Countdown block tighter */
+  .countdown-card {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Footer smaller */
+  .footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
