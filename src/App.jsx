@@ -140,11 +140,17 @@ export default function App() {
       </div>
 
       {/* Love Story */}
-      <Section id="love-story">
-        <div className="card">
-          <img src={`${import.meta.env.BASE_URL}lovestory.jpg`} alt="Our Love Story" className="portrait-photo" />
-        </div>
-      </Section>
+<Section id="love-story">
+  <div className="card text-center">
+    <img
+      src={`${import.meta.env.BASE_URL}lovestory.jpg`}
+      alt="Our Love Story"
+      className="portrait-photo"
+      onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}lovestory.jpg`)}
+      style={{ cursor: "zoom-in" }}
+    />
+  </div>
+</Section>
 
       {/* Entourage */}
       <Section id="entourage" title="ENTOURAGE">
