@@ -30,7 +30,7 @@ function Section({ id, title, children }) {
 export default function App() {
   const audioRef = useRef(null)
   const [playing, setPlaying] = useState(false)
-  const [selectedPhoto, setSelectedPhoto] = useState(null) // ✅ for lightbox
+  const [selectedPhoto, setSelectedPhoto] = useState(null)
 
   const toggleMusic = () => {
     if (!audioRef.current) return
@@ -103,7 +103,6 @@ export default function App() {
             <Countdown to={WEDDING_DATE} />
           </div>
 
-          {/* Background Music */}
           <audio ref={audioRef} loop>
             <source src={`${import.meta.env.BASE_URL}music.mp3`} type="audio/mpeg" />
           </audio>
@@ -115,7 +114,6 @@ export default function App() {
         <audio ref={audioRef} loop>
           <source src={`${import.meta.env.BASE_URL}music.mp3`} type="audio/mpeg" />
         </audio>
-
         <div className="music-player-inner">
           <img
             src={`${import.meta.env.BASE_URL}cover.jpg`}
@@ -140,17 +138,17 @@ export default function App() {
       </div>
 
       {/* Love Story */}
-<Section id="love-story">
-  <div className="card text-center">
-    <img
-      src={`${import.meta.env.BASE_URL}lovestory.jpg`}
-      alt="Our Love Story"
-      className="portrait-photo"
-      onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}lovestory.jpg`)}
-      style={{ cursor: "zoom-in" }}
-    />
-  </div>
-</Section>
+      <Section id="love-story">
+        <div className="card">
+          <img
+            src={`${import.meta.env.BASE_URL}lovestory.jpg`}
+            alt="Our Love Story"
+            className="portrait-photo"
+            onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}lovestory.jpg`)}
+            style={{ cursor: "zoom-in" }}
+          />
+        </div>
+      </Section>
 
       {/* Entourage */}
       <Section id="entourage" title="ENTOURAGE">
@@ -188,6 +186,8 @@ export default function App() {
             src={`${import.meta.env.BASE_URL}detailstop.jpg`}
             alt="Details Top Photo"
             className="portrait-photo"
+            onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}detailstop.jpg`)}
+            style={{ cursor: "zoom-in" }}
           />
         </div>
         <h3 className="h3 text-center mt-6">LOCATION MAP</h3>
@@ -210,21 +210,39 @@ export default function App() {
       {/* Attire */}
       <Section id="attire" title="ATTIRE">
         <div className="card">
-          <img src={`${import.meta.env.BASE_URL}dresscode.jpg`} alt="Dress Code" className="portrait-photo" />
+          <img
+            src={`${import.meta.env.BASE_URL}dresscode.jpg`}
+            alt="Dress Code"
+            className="portrait-photo"
+            onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}dresscode.jpg`)}
+            style={{ cursor: "zoom-in" }}
+          />
         </div>
       </Section>
 
       {/* Extra Photo */}
       <Section id="extra-photo">
-        <div className="card" style={{ textAlign: "center" }}>
-          <img src={`${import.meta.env.BASE_URL}attire-extra.jpg`} alt="Extra Portrait" className="portrait-photo" />
+        <div className="card text-center">
+          <img
+            src={`${import.meta.env.BASE_URL}attire-extra.jpg`}
+            alt="Extra Portrait"
+            className="portrait-photo"
+            onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}attire-extra.jpg`)}
+            style={{ cursor: "zoom-in" }}
+          />
         </div>
       </Section>
 
       {/* Notes */}
       <Section id="notes">
-        <div className="card" style={{ textAlign: "center" }}>
-          <img src={`${import.meta.env.BASE_URL}giftphoto.jpg`} alt="Gift Photo" className="portrait-photo" />
+        <div className="card text-center">
+          <img
+            src={`${import.meta.env.BASE_URL}giftphoto.jpg`}
+            alt="Gift Photo"
+            className="portrait-photo"
+            onClick={() => setSelectedPhoto(`${import.meta.env.BASE_URL}giftphoto.jpg`)}
+            style={{ cursor: "zoom-in" }}
+          />
         </div>
       </Section>
 
@@ -240,7 +258,7 @@ export default function App() {
       {selectedPhoto && (
         <div className="lightbox" onClick={() => setSelectedPhoto(null)}>
           <div className="lightbox-content">
-            <img src={selectedPhoto} alt="Enlarged Entourage" />
+            <img src={selectedPhoto} alt="Enlarged" />
           </div>
         </div>
       )}
