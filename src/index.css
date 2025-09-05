@@ -147,18 +147,27 @@ img {
   max-width: 1000px;
 }
 
-/* Entourage grid */
+/* Entourage Grid */
 .entourage-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 per row on desktop */
   gap: 16px;
   justify-items: center;
   align-items: center;
 }
 
+.entourage-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Mobile - stack vertically */
 @media (max-width: 768px) {
   .entourage-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* ✅ one per row */
   }
 }
 
@@ -464,4 +473,32 @@ img {
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   object-fit: contain;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+.lightbox-content img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
